@@ -14,18 +14,71 @@
       </header>
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Expenses</a></li>
-          <li><a href="#">Add Expense</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="expenses.html" class="active">Expenses</a></li>
+          <li><a href="add-expense.html">Add Expense</a></li>
         </ul>
       </nav>
       <main>
-        <h2>Home</h2>
-        <p>
-          Welcome to the Expense Tracker!
-        </p>
+        <h2>Expenses</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Vendor</th>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>09/01/2020</td>
+              <td>Orange Market Fuel</td>
+              <td>Travel</td>
+              <td>$23.45</td>
+              <td>
+                <button type="button">View</button>
+              </td>
+            </tr>
+            <tr>
+              <td>09/02/2020</td>
+              <td>Oakmill Paper Supply</td>
+              <td>Office Supplies</td>
+              <td>$67.12</td>
+              <td>
+                <button type="button">View</button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Total:</td>
+              <td>$90.57</td>
+            </tr>
+          </tfoot>
+        </table>
       </main>
-      <aside></aside>
+      <aside>
+        <header>
+          <h3>Expense Details</h3>
+        </header>
+        <div>
+          Date: 09/02/2020
+        </div>
+        <div>
+          Vendor: Oakmill Paper Supply
+        </div>
+        <div>
+          Description: Printer paper.
+        </div>
+        <div>
+          Category: Office Supplies
+        </div>
+        <div>
+          Amount: $67.12
+        </div>
+      </aside>
       <footer>
         <small>A Cool Company, Inc.</small>
       </footer>
