@@ -1,7 +1,7 @@
 {
-  "name": "intro-web-programming",
+  "name": "ericwgreene-intro-web-programming",
   "version": "1.0.0",
-  "description": "Introduction to Web Programming HTML/CSS/JS Tutorial Application",
+  "description": "Introduction to Web Programming Tutorial Project",
   "main": "index.html",
   "scripts": {
     "start": "serve",
@@ -12,9 +12,9 @@
     "url": "git+https://github.com/codesandbox-app/static-template.git"
   },
   "keywords": [
+    "javascript",
     "css",
-    "html",
-    "javascript"
+    "html"
   ],
   "author": "Ives van Hoorne",
   "license": "MIT",
