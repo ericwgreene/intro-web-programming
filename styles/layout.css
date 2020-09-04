@@ -1,0 +1,107 @@
+.container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: grid;
+  grid-template-rows: 75px 40px 1fr 50px;
+  grid-template-columns: 2fr 1fr;
+
+  grid-template-areas:
+    "page-header page-header"
+    "main-menu main-menu"
+    "content sidebar"
+    "page-footer page-footer";
+}
+
+#page-header {
+  grid-area: page-header;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#page-header > h1 {
+  margin-left: 10px;
+}
+
+#logo {
+  height: 100%;
+}
+
+#main-menu {
+  grid-area: main-menu;
+  background-color: lightgray;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#main-menu > ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style-type: none;
+  border: 0;
+  padding: 0;
+}
+
+#main-menu > ul > li {
+  margin: 0;
+  padding: 4px 8px;
+}
+
+#content {
+  grid-area: content;
+  padding: 10px;
+}
+
+#sidebar {
+  grid-area: sidebar;
+}
+
+#page-footer {
+  grid-area: page-footer;
+  text-align: center;
+
+  padding-top: 10px;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center,
+.col-date,
+.col-lookup {
+  text-align: center;
+}
+
+.align-right,
+.col-number {
+  text-align: right;
+}
+
+td {
+  padding: 4px;
+}
+
+.field {
+  margin: 4px 0;
+  display: flex;
+}
+
+.field-name,
+.field-value {
+  padding: 0;
+  margin: 0;
+}
+
+.field-name {
+}
+
+.field-value {
+}

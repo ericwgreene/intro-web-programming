@@ -1,0 +1,14 @@
+body {
+  font-size: 100%;
+  font-family: arial;
+}
+
+#page-header,
+#page-footer {
+  background-color: navy;
+  color: white;
+}
+
+.field-name {
+  font-weight: bold;
+}

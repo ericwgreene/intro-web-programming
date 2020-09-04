@@ -5,29 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Expense Tracker</title>
+    <link href="styles/layout.css" rel="stylesheet" />
+    <link href="styles/theme.css" rel="stylesheet" />
   </head>
   <body>
     <div class="container">
-      <header>
-        <img src="images/logo.jpg" height="100" />
+      <header id="page-header">
+        <img id="logo" src="images/logo.jpg" />
         <h1>Expense Tracker</h1>
       </header>
-      <nav>
+      <nav id="main-menu">
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="expenses.html">Expenses</a></li>
           <li><a href="add-expense.html">Add Expense</a></li>
         </ul>
       </nav>
-      <main>
+      <main id="content">
         <h2>Home</h2>
         <p>
           Welcome to the Expense Tracker!
         </p>
       </main>
-      <aside></aside>
-      <footer>
-        <small>A Cool Company, Inc.</small>
+      <aside id="sidebar"></aside>
+      <footer id="page-footer">
+        <small>&copy 2020 A Cool Company, Inc.</small>
       </footer>
     </div>
   </body>

@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Expense Tracker</title>
+    <link href="styles/layout.css" rel="stylesheet" />
+    <link href="styles/theme.css" rel="stylesheet" />
   </head>
   <body>
     <div class="container">
-      <header>
-        <img src="images/logo.jpg" height="100" />
+      <header id="page-header">
+        <img id="logo" src="images/logo.jpg" />
         <h1>Expense Tracker</h1>
       </header>
-      <nav>
+      <nav id="main-menu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="expenses.html" class="active">Expenses</a></li>
           <li><a href="add-expense.html">Add Expense</a></li>
         </ul>
       </nav>
-      <main>
+      <main id="content">
         <h2>Expenses</h2>
         <table>
           <thead>
@@ -33,54 +35,59 @@
           </thead>
           <tbody>
             <tr>
-              <td>09/01/2020</td>
-              <td>Orange Market Fuel</td>
-              <td>Travel</td>
-              <td>$23.45</td>
-              <td>
+              <td class="col-date">09/01/2020</td>
+              <td class="col-lookup">Orange Market Fuel</td>
+              <td class="col-lookup">Travel</td>
+              <td class="col-number">$23.45</td>
+              <td class="align-center">
                 <button type="button">View</button>
               </td>
             </tr>
             <tr>
-              <td>09/02/2020</td>
-              <td>Oakmill Paper Supply</td>
-              <td>Office Supplies</td>
-              <td>$67.12</td>
-              <td>
+              <td class="col-date">09/02/2020</td>
+              <td class="col-lookup">Oakmill Paper Supply</td>
+              <td class="col-lookup">Office Supplies</td>
+              <td class="col-number">$67.12</td>
+              <td class="align-center">
                 <button type="button">View</button>
               </td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="4">Total:</td>
-              <td>$90.57</td>
+              <td colspan="4" class="align-right">Total:</td>
+              <td class="col-number">$90.57</td>
             </tr>
           </tfoot>
         </table>
       </main>
-      <aside>
+      <aside id="sidebar">
         <header>
           <h3>Expense Details</h3>
         </header>
-        <div>
-          Date: 09/02/2020
+        <div class="field">
+          <span class="field-name">Date:</span>
+          <span class="field-value">09/02/2020</span>
         </div>
-        <div>
-          Vendor: Oakmill Paper Supply
+        <div class="field">
+          <span class="field-name">Vendor:</span>
+          <span class="field-value">Oakmill Paper Supply</span>
         </div>
-        <div>
-          Description: Printer paper.
+        <div class="field">
+          <span class="field-name">Description:</span>
+          <span class="field-value">Printer paper.</span>
         </div>
-        <div>
-          Category: Office Supplies
+        <div class="field">
+          <span class="field-name">Category:</span>
+          <span class="field-value">Office Supplies</span>
         </div>
-        <div>
-          Amount: $67.12
+        <div class="field">
+          <span class="field-name">Amount:</span>
+          <span class="field-value">$67.12</span>
         </div>
       </aside>
-      <footer>
-        <small>A Cool Company, Inc.</small>
+      <footer id="page-footer">
+        <small>&copy 2020 A Cool Company, Inc.</small>
       </footer>
     </div>
   </body>
