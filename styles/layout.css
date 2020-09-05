@@ -59,6 +59,10 @@
   padding: 10px;
 }
 
+#expenses-table {
+  width: 100%;
+}
+
 #sidebar {
   grid-area: sidebar;
 }

@@ -8,6 +8,7 @@ export class ExpenseTracker {
   constructor(global) {
     this._global = global;
     this._data = {};
+    this._currencyFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
   }
 
   saveData(dataKey) {
@@ -65,5 +66,11 @@ export class ExpenseTracker {
     }
 
     this._data[EXPENSES_KEY] = value;
+  }
+
+  get expensesFormattedTotal() {
+    return this._currencyFormat.format(
+      this._data[EXPENSES_KEY].reduce((sum, exp) => sum + exp.price, 0),
+    );
   }
 }

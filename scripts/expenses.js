@@ -1,27 +1,35 @@
 import { expenseTracker } from './app.js';
 
-const currencyFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+function createDateCol(dateValue) {
+  const dateTdElement = document.createElement('td');
+  dateTdElement.classList.add('col-date');
+  dateTdElement.textContent = dateValue;
+  return dateTdElement;
+}
+
+function createNumCol(numValue) {
+  const numTdElement = document.createElement('td');
+  numTdElement.classList.add('col-number');
+  numTdElement.textContent = numValue;
+  return numTdElement;
+}
+
+function createCenterCol(value) {
+  const centerTdElement = document.createElement('td');
+  centerTdElement.classList.add('align-center');
+  centerTdElement.textContent = value;
+  return centerTdElement;
+}
 
 function renderExpenseRow(expense) {
   console.dir(expense.transactionDate);
 
   const trElement = document.createElement('tr');
 
-  const transactionDateTdElement = document.createElement('td');
-  transactionDateTdElement.textContent = expense.transactionDate;
-  trElement.append(transactionDateTdElement);
-
-  const vendorNameTdElement = document.createElement('td');
-  vendorNameTdElement.textContent = expense.vendorName;
-  trElement.append(vendorNameTdElement);
-
-  const categoryNameTdElement = document.createElement('td');
-  categoryNameTdElement.textContent = expense.categoryName;
-  trElement.append(categoryNameTdElement);
-
-  const priceTdElement = document.createElement('td');
-  priceTdElement.textContent = expense.formattedPrice;
-  trElement.append(priceTdElement);
+  trElement.append(createDateCol(expense.transactionDate));
+  trElement.append(createCenterCol(expense.vendorName));
+  trElement.append(createCenterCol(expense.categoryName));
+  trElement.append(createNumCol(expense.formattedPrice));
 
   const actionsTdElement = document.createElement('td');
   const viewButtonElement = document.createElement('button');
@@ -48,9 +56,9 @@ function renderExpenseRows(expenses = []) {
   );
 }
 
-function renderUpdateExpenseTotal(expenseTotal = 0) {
-  const td = document.querySelector('#expenses-table > tfoot td:last-child');
-  td.textContent = currencyFormat.format(expenseTotal);
+function renderUpdateExpenseTotal(expensesFormattedTotal) {
+  const td = document.querySelector('#expenses-table > tfoot td:nth-child(2)');
+  td.textContent = expensesFormattedTotal;
 }
 
 function renderExpenseDetails(expense) {
@@ -63,4 +71,4 @@ function renderExpenseDetails(expense) {
 }
 
 renderExpenseRows(expenseTracker.expenses);
-renderUpdateExpenseTotal(expenseTracker.expenses.reduce((sum, exp) => sum + exp.price, 0));
+renderUpdateExpenseTotal(expenseTracker.expensesFormattedTotal);
