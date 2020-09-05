@@ -101,7 +101,5 @@ td {
 }
 
 .field-name {
-}
-
-.field-value {
+  flex-basis: 100px;
 }
