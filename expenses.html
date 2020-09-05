@@ -7,6 +7,10 @@
     <title>Expense Tracker</title>
     <link href="styles/layout.css" rel="stylesheet" />
     <link href="styles/theme.css" rel="stylesheet" />
+    <script type="module" src="scripts/expense-tracker.js" async></script>
+    <script type="module" src="scripts/expense.js" async></script>
+    <script type="module" src="scripts/app.js" async></script>
+    <script type="module" src="scripts/expenses.js" async></script>
   </head>
   <body>
     <div class="container">
@@ -23,7 +27,7 @@
       </nav>
       <main id="content">
         <h2>Expenses</h2>
-        <table>
+        <table id="expenses-table">
           <thead>
             <tr>
               <th>Date</th>
@@ -35,21 +39,8 @@
           </thead>
           <tbody>
             <tr>
-              <td class="col-date">09/01/2020</td>
-              <td class="col-lookup">Orange Market Fuel</td>
-              <td class="col-lookup">Travel</td>
-              <td class="col-number">$23.45</td>
-              <td class="align-center">
-                <button type="button">View</button>
-              </td>
-            </tr>
-            <tr>
-              <td class="col-date">09/02/2020</td>
-              <td class="col-lookup">Oakmill Paper Supply</td>
-              <td class="col-lookup">Office Supplies</td>
-              <td class="col-number">$67.12</td>
-              <td class="align-center">
-                <button type="button">View</button>
+              <td colspan="5">
+                There are no expenses.
               </td>
             </tr>
           </tbody>
@@ -65,23 +56,23 @@
         <header>
           <h3>Expense Details</h3>
         </header>
-        <div class="field">
+        <div class="field expense-date">
           <span class="field-name">Date:</span>
           <span class="field-value">09/02/2020</span>
         </div>
-        <div class="field">
+        <div class="field expense-vendor">
           <span class="field-name">Vendor:</span>
           <span class="field-value">Oakmill Paper Supply</span>
         </div>
-        <div class="field">
+        <div class="field expense-description">
           <span class="field-name">Description:</span>
           <span class="field-value">Printer paper.</span>
         </div>
-        <div class="field">
+        <div class="field expense-category">
           <span class="field-name">Category:</span>
           <span class="field-value">Office Supplies</span>
         </div>
-        <div class="field">
+        <div class="field expense-amount">
           <span class="field-name">Amount:</span>
           <span class="field-value">$67.12</span>
         </div>
