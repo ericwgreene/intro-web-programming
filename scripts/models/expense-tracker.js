@@ -1,13 +1,19 @@
 import { Expense } from './expense.js';
 
+// - constant variables are used for variables whose
+//   values do not change
+// - uppercase syntax is a convention to view these as
+//   constants
 export const VENDORS_KEY = 'vendors';
 export const CATEGORIES_KEY = 'categories';
 export const EXPENSES_KEY = 'expenses';
 
 export class ExpenseTracker {
   // getter/setter properties
-
   get vendors() {
+    // square brackets can be used to execute an expression
+    // which determines the name of a property to access
+    // on an object
     return this._data[VENDORS_KEY].concat();
   }
 
@@ -20,6 +26,9 @@ export class ExpenseTracker {
   }
 
   set expenses(value) {
+    // validation logic can be applied within the setter methods for
+    // getter/setter properties
+
     if (this._data[EXPENSES_KEY] === value) {
       throw new Error('expenses cannot be the same array reference');
     }
@@ -40,6 +49,7 @@ export class ExpenseTracker {
   // constructor
 
   constructor(global) {
+    // save a reference to the global variable
     this._global = global;
     this._data = {};
     this._currencyFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
@@ -51,6 +61,7 @@ export class ExpenseTracker {
     // write the data to local storage for future use
     this._global.localStorage.setItem(
       dataKey,
+      // local storage stores data as a string
       JSON.stringify(
         typeof this._data[dataKey].toJSON === 'function'
           ? this._data[dataKey].toJSON()
@@ -60,17 +71,21 @@ export class ExpenseTracker {
   }
 
   loadData(dataKey, initialData, ModelClass = null) {
-    // attempt toad the data from local storage
+    // attempt to load the data from local storage
     const dataJSON = this._global.localStorage.getItem(dataKey);
 
     if (dataJSON !== null) {
-      // data was found, setup on global variable
-      this._data[dataKey] = JSON.parse(dataJSON).map((data) =>
-        ModelClass ? new ModelClass(this, data) : data,
+      // data was found, convert from JSON string to a JavaScript object
+      this._data[dataKey] = JSON.parse(dataJSON).map(
+        // if a ModelClass is specified use the ModelClass to create
+        // the object, otherwise just use the plain object
+        (data) => (ModelClass ? new ModelClass(this, data) : data),
       );
     } else {
       // data was not found, use the initial data
-      this._data[dataKey] = initialData;
+      this._data[dataKey] = initialData.map((data) =>
+        ModelClass ? new ModelClass(this, data) : data,
+      );
 
       // save data to local storage
       this.saveData(dataKey);
@@ -80,14 +95,11 @@ export class ExpenseTracker {
   init(vendors, categories, expenses = []) {
     this.loadData(VENDORS_KEY, vendors);
     this.loadData(CATEGORIES_KEY, categories);
-    this.loadData(
-      EXPENSES_KEY,
-      expenses.map((expense) => new Expense(this, expense)),
-      Expense,
-    );
+    this.loadData(EXPENSES_KEY, expenses, Expense);
   }
 
   addExpense(expenseData) {
+    // calculate the id from the existing expense ids
     expenseData.id = Math.max(...this.expenses.map((exp) => exp.id), 0) + 1;
     this.expenses = this.expenses.concat(new Expense(this, expenseData));
     this.saveData(EXPENSES_KEY);
