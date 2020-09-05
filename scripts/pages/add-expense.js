@@ -1,4 +1,4 @@
-import { expenseTracker } from './app.js';
+import { expenseTracker } from '../app.js';
 
 function renderLookupDropDown(selectElementSelector, lookupItems = []) {
   // lots of query selector code in plain JavaScript to interact

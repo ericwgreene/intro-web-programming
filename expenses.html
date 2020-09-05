@@ -7,10 +7,10 @@
     <title>Expense Tracker</title>
     <link href="styles/layout.css" rel="stylesheet" />
     <link href="styles/theme.css" rel="stylesheet" />
-    <script type="module" src="scripts/expense-tracker.js" async></script>
-    <script type="module" src="scripts/expense.js" async></script>
+    <script type="module" src="scripts/models/expense.js" async></script>
+    <script type="module" src="scripts/models/expense-tracker.js" async></script>
     <script type="module" src="scripts/app.js" async></script>
-    <script type="module" src="scripts/expenses.js" async></script>
+    <script type="module" src="scripts/pages/expenses.js" async></script>
   </head>
   <body>
     <div class="container">
@@ -26,7 +26,9 @@
         </ul>
       </nav>
       <main id="content">
-        <h2>Expenses</h2>
+        <header>
+          <h2>Expenses</h2>
+        </header>
         <table id="expenses-table">
           <thead>
             <tr>
@@ -59,23 +61,23 @@
         </header>
         <div class="field expense-date">
           <span class="field-name">Date:</span>
-          <span class="field-value">09/02/2020</span>
+          <span class="field-value"></span>
         </div>
         <div class="field expense-vendor">
           <span class="field-name">Vendor:</span>
-          <span class="field-value">Oakmill Paper Supply</span>
+          <span class="field-value"></span>
         </div>
         <div class="field expense-description">
           <span class="field-name">Description:</span>
-          <span class="field-value">Printer paper.</span>
+          <span class="field-value"></span>
         </div>
         <div class="field expense-category">
           <span class="field-name">Category:</span>
-          <span class="field-value">Office Supplies</span>
+          <span class="field-value"></span>
         </div>
         <div class="field expense-amount">
           <span class="field-name">Amount:</span>
-          <span class="field-value">$67.12</span>
+          <span class="field-value"></span>
         </div>
       </aside>
       <footer id="page-footer">

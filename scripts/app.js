@@ -1,4 +1,4 @@
-import { ExpenseTracker } from './expense-tracker.js';
+import { ExpenseTracker } from './models/expense-tracker.js';
 
 // - create an instance of the ExpenseTracker which will be used
 //   in all of the JavaScript files

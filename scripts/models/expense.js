@@ -1,15 +1,4 @@
 export class Expense {
-  constructor(expenseTracker, expenseData) {
-    this._expenseTracker = expenseTracker;
-    this._expenseData = expenseData;
-
-    if (typeof this._expenseData.transactionDate === 'string') {
-      this._expenseData.transactionDate = new Date(this._expenseData.transactionDate);
-    }
-
-    this._currencyFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
-  }
-
   get id() {
     return this._expenseData.id;
   }
@@ -50,6 +39,17 @@ export class Expense {
 
   get formattedPrice() {
     return this._currencyFormat.format(this._expenseData.price);
+  }
+
+  constructor(expenseTracker, expenseData) {
+    this._expenseTracker = expenseTracker;
+    this._expenseData = expenseData;
+
+    if (typeof this._expenseData.transactionDate === 'string') {
+      this._expenseData.transactionDate = new Date(this._expenseData.transactionDate);
+    }
+
+    this._currencyFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
   }
 
   toJSON() {
