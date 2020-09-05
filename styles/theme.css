@@ -9,6 +9,16 @@ body {
   color: white;
 }
 
+.menu-item > a,
+.menu-item > a:visited {
+  text-decoration: none;
+  color: blue;
+}
+
+.menu-item:hover > a {
+  text-decoration: underline;
+}
+
 .field-name {
   font-weight: bold;
 }
