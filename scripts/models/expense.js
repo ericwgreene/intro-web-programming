@@ -1,4 +1,6 @@
 export class Expense {
+  // getter properties appear to be simple date properties
+  // but run a function to return a value
   get id() {
     return this._expenseData.id;
   }
@@ -17,6 +19,7 @@ export class Expense {
     const vendor = this._expenseTracker.vendors.find(
       // this a predicate function, the first time it returns true,
       // that is the item from the array returned from the find function
+      // arrow functions are commonly used for these kinds of operations
       (v) => v.id === this._expenseData.vendorId,
     );
 
@@ -67,6 +70,7 @@ export class Expense {
     this._currencyFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
   }
 
+  // this is a class method which is a keyword-style function in JavaScript
   toJSON() {
     // return the raw expense data, used for serialization to local storage
     return this._expenseData;
