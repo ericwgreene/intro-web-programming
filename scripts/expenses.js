@@ -1,5 +1,6 @@
 import { expenseTracker } from './app.js';
 
+// create a new td element, with the 'col-date' class applied
 function createDateCol(dateValue) {
   const dateTdElement = document.createElement('td');
   dateTdElement.classList.add('col-date');
@@ -7,6 +8,7 @@ function createDateCol(dateValue) {
   return dateTdElement;
 }
 
+// create a new td element, with the 'col-number' class applied
 function createNumCol(numValue) {
   const numTdElement = document.createElement('td');
   numTdElement.classList.add('col-number');
@@ -14,41 +16,40 @@ function createNumCol(numValue) {
   return numTdElement;
 }
 
-function createCenterCol(value) {
+// create a new td element, with the 'align-center' class applied
+function createCenterCol(content) {
   const centerTdElement = document.createElement('td');
   centerTdElement.classList.add('align-center');
-  centerTdElement.textContent = value;
+  centerTdElement.append(content);
   return centerTdElement;
 }
 
+function createButton(content, clickFn) {
+  const viewButtonElement = document.createElement('button');
+  viewButtonElement.textContent = content;
+  viewButtonElement.addEventListener('click', clickFn);
+  return viewButtonElement;
+}
+
 function renderExpenseRow(expense) {
-  console.dir(expense.transactionDate);
-
   const trElement = document.createElement('tr');
-
   trElement.append(createDateCol(expense.transactionDate));
   trElement.append(createCenterCol(expense.vendorName));
   trElement.append(createCenterCol(expense.categoryName));
   trElement.append(createNumCol(expense.formattedPrice));
-
-  const actionsTdElement = document.createElement('td');
-  const viewButtonElement = document.createElement('button');
-  viewButtonElement.textContent = 'View';
-  viewButtonElement.addEventListener('click', () => renderExpenseDetails(expense));
-  actionsTdElement.append(viewButtonElement);
-  trElement.append(actionsTdElement);
-
+  trElement.append(createCenterCol(createButton('View', () => renderExpenseDetails(expense))));
   return trElement;
 }
 
 function renderExpenseRows(expenses = []) {
   const tbodyElement = document.querySelector('#expenses-table > tbody');
 
-  // clear all children
+  // clear all rows
   while (tbodyElement.firstChild) {
     tbodyElement.removeChild(tbodyElement.lastChild);
   }
 
+  //
   tbodyElement.append(
     ...(expenses.length === 0
       ? ['<tr><td colspan="5">There are no expenses.</td></tr>']
