@@ -1,14 +1,18 @@
-.container {
+/* selects the element with the id of 'app-container' */
+#app-container {
+  /* position the web application to take up the entire viewport of the web browser */
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
 
+  /* use grid to create a 2-d layout of rows and cols */
   display: grid;
   grid-template-rows: 75px 40px 1fr 50px;
   grid-template-columns: 2fr 1fr;
 
+  /* using template areas allows for a visual layout for the grid cells */
   grid-template-areas:
     'page-header page-header'
     'main-menu main-menu'
@@ -17,13 +21,20 @@
 }
 
 #page-header {
+  /* place the selected element in the 'page-header' part of the grid */
   grid-area: page-header;
 
+  /* flex is used to position elements in one direction */
   display: flex;
+  /* align items in the major axis (in this case a row) */
   justify-content: flex-start;
+  /* align items in the minor access (in this case a col) */
   align-items: center;
 }
 
+/* combinator selector selects an element with respect to another element */
+/* this will select all h1 elements which are a child of an element with 
+   an id of 'page-header' */
 #page-header > h1 {
   margin-left: 10px;
 }
@@ -44,6 +55,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  /* remove the bullet points on the items */
   list-style-type: none;
   border: 0;
   padding: 0;
@@ -67,6 +79,10 @@
   grid-area: sidebar;
 }
 
+#sidebar > header {
+  margin-top: 50px;
+}
+
 #page-footer {
   grid-area: page-footer;
   text-align: center;
@@ -78,6 +94,8 @@
   text-align: left;
 }
 
+/* multiple selectors can be grouped
+   together to share the same styling rules */
 .align-center,
 .col-date,
 .col-lookup {
@@ -120,5 +138,6 @@ td {
 
 .field-name,
 .form-label {
+  /* the width will be at least 100px */
   flex-basis: 100px;
 }

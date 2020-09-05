@@ -1,4 +1,7 @@
+/* 'body' is an element selector, notice
+   there is no '#' or '.' prefixing the selector */
 body {
+  /* font size is 100% is the size of the browser configured font size */
   font-size: 100%;
   font-family: arial;
 }
@@ -15,6 +18,8 @@ body {
   color: blue;
 }
 
+/* ':hover' is a pseudo-class selector which
+   detects when a mouse is hovering over the item */
 .menu-item:hover > a {
   text-decoration: underline;
 }
