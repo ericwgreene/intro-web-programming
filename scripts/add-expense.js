@@ -1,14 +1,36 @@
-// import { expenseTracker } from './app';
+import { expenseTracker } from './app.js';
 
-// function renderLookupOptions(selectElementSelector, lookupItems = []) {}
+function renderLookupDropDown(selectElementSelector, lookupItems = []) {
+  const selectElement = document.querySelector(selectElementSelector);
 
-// function appendExpense(expense) {
-//   const newExpense = {
-//     ...expense,
-//     id: Math.max(...window.expenseTracker.expenses.map((exp) => exp.id), 0) + 1,
-//   };
+  while (selectElement.firstChild) {
+    selectElement.removeChild(selectElement.lastChild);
+  }
 
-//   window.expenseTracker.expenses = [...window.expenseTracker.expenses, newExpense];
+  selectElement.append(
+    ...[{ id: '', name: 'Select One...' }, ...lookupItems].map((lookupItem) => {
+      const option = document.createElement('option');
+      option.value = lookupItem.id;
+      option.textContent = lookupItem.name;
+      return option;
+    }),
+  );
+}
 
-//   window.expenseTracker.saveData();
-// }
+function appendExpense() {
+  const expenseFormData = {
+    transactionDate: document.querySelector('#date-input').value,
+    vendorId: Number(document.querySelector('#vendor-select').value),
+    categoryId: Number(document.querySelector('#category-select').value),
+    description: document.querySelector('#description-textarea').value,
+    price: document.querySelector('#price-input').value,
+  };
+  expenseTracker.addExpense(expenseFormData);
+
+  window.location.href = '/expenses.html';
+}
+
+renderLookupDropDown('#vendor-select', expenseTracker.vendors);
+renderLookupDropDown('#category-select', expenseTracker.categories);
+
+document.querySelector('#add-expense-button').addEventListener('click', appendExpense);

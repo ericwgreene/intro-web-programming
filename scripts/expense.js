@@ -51,4 +51,8 @@ export class Expense {
   get formattedPrice() {
     return this._currencyFormat.format(this._expenseData.price);
   }
+
+  toJSON() {
+    return this._expenseData;
+  }
 }
