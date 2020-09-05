@@ -109,5 +109,12 @@ td {
 
 .field-name,
 .form-label {
+-control {
+  padding: 0;
+  margin: 0;
+}
+
+.field-name,
+.form-label {
   flex-basis: 100px;
 }
